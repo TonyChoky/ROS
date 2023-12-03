@@ -1,0 +1,18 @@
+<!-- launch.launch -->
+
+<launch>
+
+  <!-- Launch the turtlebot3_navigation node -->
+  <include file="$(find /opt/ros/noetic/share/turtlebot3_navigation)/launch/turtlebot3_navigation.launch">
+    <arg name="map_file" value="/home/sittichok/map/map.yaml"/>
+    <arg name="model" default="burger" doc="model type [burger, waffle, waffle_pi]"/>
+  </include>
+
+  <!-- Add a delay to allow the first node to fully start -->
+  <rosparam command="load" file="$(find your_package)/config/delay_params.yaml"/>
+
+  <!-- Launch your custom Python script -->
+  <node pkg="final_project_ros" type="final_ros.py" name="final_ros_node" output="screen">
+  </node>
+
+</launch>

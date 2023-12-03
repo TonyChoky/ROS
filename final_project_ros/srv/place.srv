@@ -1,0 +1,6 @@
+# place.srv
+int8 place
+---
+geometry_msgs/PoseStamped pose_point
+string result
+
